@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+
+    <style>
+
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: rgb(58, 124, 165);
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        #contenedor{
+            background: white;
+            border-radius: 30px;
+            text-align:left;
+            width: 500px;
+            height: 500px;
+            display: inline-block;
+            padding: 20px;
+                
+        }
+
+        
+        #contenedorInterno{
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button{
+            display: inline-block;
+            margin: auto;
+            margin-top: 25px;
+            border: 0px;
+            padding: 10px;
+            background-color: rgb(58, 124, 165);
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+        
+        }
+
+        button:hover{
+            background-color: rgb(90, 135, 163);
+            color: white;
+        
+        }
+
+        input{
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid grey;
+        }
+        
+        select{
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #resultado{
+            background-color: rgb(47, 102, 144);
+            border-radius: 10px;
+            color: white;
+            padding: 5px;
+        }
+
+        
+        
+
+    </style>
+
+
+    <script type="text/javascript">
+
+    
+    function cambiarTipoMoneda(){
+        var cbxMoneda1 = document.getElementById("cbxMoneda1");
+        var lblMonedaDest = document.getElementById("lblMonedaDestino");
+
+        if (cbxMoneda1.value == 1){
+            lblMonedaDest.innerHTML = "a pesos Chilenos (CLP)"
+        }
+
+        else{
+            lblMonedaDest.innerHTML = "a UF"
+        }
+
+    }
+    
+    function convertirMoneda(){
+        var txtCantidad = parseInt(document.getElementById("txtCantidad").value);
+        var cbxMoneda1 = document.getElementById("cbxMoneda1");
+        var resultado = document.getElementById("resultado");
+        var conversion = 0;
+
+
+        if(!isNaN(txtCantidad)){
+            if(cbxMoneda1.value == 1){
+                conversion = txtCantidad * 26600;
+                resultado.innerHTML = txtCantidad + " UF corresponde a: " + conversion + " pesos Chilenos";                                                         
+            }
+
+            else{
+                conversion = Math.round( (txtCantidad / 26600) * 100000) / 100000; //Round par redondear, multiplicacion y division por 1000 paraa ceptar máximo 5 decimales
+                resultado.innerHTML = txtCantidad + " CLP corresponda a: " + conversion + " UF";                                                         
+            }
+
+            resultado.hidden = false;
+        }
+        else{
+            alert("Ingrese un numero válido")
+        }
+                        
+    }
+
+                    
+    </script>
+
+    <style>
+
+    </style>
+
+
+</head>
+<body>
+    <div id="contenedor">
+        <h3>Convertor de pesos Chilenos (CLP) a UF</h3>
+        <p>A continuación eliga la moneda de origen y la cantidad que desea convertir</p>
+        <div id="contenedorInterno">
+            <select name="cbxMoneda1" id="cbxMoneda1" onchange="cambiarTipoMoneda()">
+                <option value="1">UF</option>
+                <option value="2">CLP</option>
+            </select>
+            <input type="number" id="txtCantidad" placeholder="Ingrese cantidad">
+            <label id="lblMonedaDestino" >a pesos Chilenos (CLP)</label>
+            <br>
+            <button id="btnConvertir" onclick="convertirMoneda()">
+                ¡Convertir!
+            </button>
+
+        <p id="resultado" hidden>pUIREVASIO IASODI </p>
+        </div>
+    </div>
+
+    <footer>
+        <a class="volverEtiqueta" href="index.html">Volver atrás</a>
+    </footer>    
+        
+</body>
+</html>

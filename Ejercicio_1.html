@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+
+
+<html>
+
+    <head>
+
+        <script>
+
+
+
+            function f1(){
+
+                var num1100 = parseInt(document.getElementById("numEje1").value);
+
+                if (!Number.isNaN(num1100)) {
+
+                    if (num1100 >= 1 && num1100 <=100){
+
+                        alert("El valor ingresado corresponde a: " + num1100 + 
+
+                        " y es un valor dentro de los parámetros establecidos.")
+
+                    }else{
+
+                        alert("Por favor ingresar un número del 1 al 100");
+
+                    }
+
+                }else{
+
+                    alert("Por favor ingresar valor numérico válido");
+
+                }
+
+            }
+
+        </script>
+
+
+        <style>
+                body{
+                    font-family:Verdana, Geneva, Tahoma, sans-serif;
+                    background-color:white;
+                    margin: 0px; 
+                    overflow: hidden;
+                }
+
+                h1{
+                    text-align: center;
+                }
+
+                .titulo{
+                    width: auto;
+                    height: 60px;
+                    background-color: rgb(5, 64, 143);
+                    padding: 0px;
+                    padding-top: 5px;
+                    padding: 3px;
+                    margin-bottom: 2px;
+                    text-align: center;
+                    padding-bottom: 30px;
+                }
+
+                .menu{
+                    display: flex;
+                    justify-content: space-evenly;
+                    flex-wrap: wrap;
+                }  
+
+                a{
+                    width: 100%;
+                    background-color: rgb(5, 64, 143);
+                    padding: 10px;
+                    text-align: center;
+                    text-decoration: none;
+                    vertical-align: middle;
+                    color:white;
+                    border-radius: 0px;
+                    font-family:Verdana, Geneva, Tahoma, sans-serif;
+                    bottom: 0px;
+                    position: absolute;            
+                }
+
+                a:hover{
+                    background-color:rgb(5, 46, 100);
+                    color:white;
+                    text-decoration: underline;
+                }
+
+                .tituloEtiqueta{
+                    color: white;
+                    vertical-align:text-top;
+                }
+
+                button{
+                padding: 8px;
+                width: 100px;
+                background-color: rgb(5, 46, 100);
+                color: white;
+                border-radius: 10px;
+                }
+
+                button:hover{
+                background-color: rgb(3, 29, 63);
+                }
+
+        </style>
+
+
+    </head>
+
+    <body>
+
+        <div class="titulo">
+            <h1 class="tituloEtiqueta">Ejercicio 1</h1><br>
+        </div>
+
+        <div class="cuerpo">
+            <label>Por favor ingresar número entero del 1 al 100</label>
+
+            <input type="number" id="numEje1">
+
+            <button onclick= "f1()">Validar</button>
+
+        </div>
+
+
+    </body>
+
+    <footer>
+        <a class="volverEtiqueta" href="index.html">Volver atrás</a>
+    </footer>
+
+</html>

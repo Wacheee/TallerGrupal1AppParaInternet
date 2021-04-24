@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercico - 4 </title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body{
+            background-image: url(home.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        main{
+            width: 100%;
+            padding: 20px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        .contenedor_todo{
+            width: 100%;
+            max-width: 800px;
+            margin:auto;
+            position: relative;
+        }
+
+        .caja_trasera{
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;justify-content: center;
+            backdrop-filter: blur(10px);
+            background-color: rgba(0,128,255,0.5);
+        }
+
+        .caja_trasera div{
+            margin: 100px 40px;
+            color: white;           
+        }
+
+        .caja_trasera div p{
+            margin-top: 30px;
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif; 
+            font-style: italic;          
+        }
+
+        .caja_trasera div button{
+            margin-top: 10px;
+
+        }
+
+        .caja_trasera div h3{
+            font-weight: 400;
+            font-size: 26px;
+        }
+
+        .caja_trasera button{
+            padding: 10px 40px;
+            border: 2px solid #fff;
+            background:rgba(0,128,255,0.5);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            color: white;
+            outline:none;
+            transition: all 300ms;
+        }
+
+        .caja_trasera button:hover{
+            padding: 10px 40px;
+            border: 2px solid #fff;
+            background: transparent;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            color: white;
+            outline:none;
+            transition: all 300ms;
+        }
+        
+        .contenedor_login-registro{
+            display:flex;
+            align-items: center;
+            width: 100%;
+            max-width: 580px;
+            position: relative;
+            top: 10px;
+            left: 10px;
+        }
+
+        .contenedor_login-registro form{
+            width: 100%;
+            padding: 80px 20px;
+            background-color: #fff;
+            position: absolute;
+            border-radius: 20px;
+        }
+
+        .contenedor_login-registro form h3{
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            color:#46a2fd;
+        }
+
+        .contenedor_login-registro form input{
+            width: 100%;
+            margin-top:20px;
+            padding: 10px;
+            border: none;
+            /* background: #f2f2f2; */
+            font-size:16px;
+            outline: none;
+        }
+
+        .contenedor_login-registro form button{
+            padding: 10px 40px;
+            margin-top: 40px;
+            border:none;
+            font-size:14px;
+            background: #46a2fd;
+            color:white;
+            cursor: pointer;
+            outline: none;
+        }
+
+       
+    </style>
+    <script typy="text/javascript">
+
+        function validar() {
+            var txt_nombre=document.getElementById("Name");
+            var txt_correo=document.getElementById("txtCorreo");
+            var txt_telefono=document.getElementById("txtTelefono");
+            var txt_comentario=document.getElementById("txtComentario");
+        
+
+            if(txt_nombre.value === ""){
+                txt_nombre.style.backgroundColor="darkred";
+                txt_nombre.style.color="white"
+                
+            }else{
+                txt_nombre.style.backgroundColor="darkgreen";    
+                txt_nombre.style.color="white"            
+            }
+
+            if(txt_correo.value === ""){
+                txt_correo.style.backgroundColor="darkred";
+                txt_correo.style.color="white"
+                
+            }else{
+                txt_correo.style.backgroundColor="darkgreen";    
+                txt_correo.style.color="white"         
+            }
+
+            if(txt_telefono.value === ""){
+                txt_telefono.style.backgroundColor="darkred";
+                txt_telefono.style.color="white"
+                
+            }else{
+                txt_telefono.style.backgroundColor="darkgreen";
+                txt_telefono.style.color="white"
+            }
+
+            if(txt_comentario.value === ""){
+                txt_comentario.style.backgroundColor="darkred";
+                txt_comentario.style.color="white"
+                
+            }else{
+                txt_comentario.style.backgroundColor="darkgreen";
+                txt_comentario.style.color="white"
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+        <main>
+            <div class="contenedor_todo">
+                <div class="caja_trasera">
+                    <div class="caja_trasera-login">
+                        <h3>¿Ya tienes una cuenta?</h3>
+                        <p>Valida tus datos para poder Registrarte</p>
+                        <button class="btn-validar" id="btn-validar" onclick="validar()">Validar</button>
+
+                    </div>
+                    <div class="contenedor_login-registro">
+                        <form class="formulario-registro">
+        
+                            <h3>Formulario Contacto</h3>
+                            <input type="text"  id="Name" placeholder="Nombre">
+                            <input type="email" id="txtCorreo" placeholder="Correo">
+                            <input type="text" id="txtTelefono" placeholder="Telefono">
+                            <input type="text"   id="txtComentario" placeholder="Comentarios">
+                            
+                        </form>
+
+                    </div>
+        
+                </div>
+
+            </div>
+        </main>
+</body>
+
+<footer>
+    <a class="volverEtiqueta" href="index.html">Volver atrás</a>
+</footer>
+
+</html>
