@@ -2,25 +2,64 @@
 <html lang="en">
 <head>
 
-    <title>Document</title>
+    <title>Ejercicio - 2</title>
 
     <style>
 
         body{
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            background-color: rgb(58, 124, 165);
+            background-color:white;
             text-align: center;
-            margin-top: 30px;
+            margin: 0px;
         }
+
+
+        .titulo{
+            width: auto;
+            height: 60px;
+            background-color: rgb(5, 64, 143);
+            padding: 3px;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        .tituloEtiqueta{
+            color: white;
+            vertical-align:text-top;
+        }
+
+        a{
+            width: 100%;
+            background-color: rgb(5, 64, 143);
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: middle;
+            color:white;
+            border-radius: 0px;
+            bottom: 0px;
+            position: fixed; 
+            left: 0px;           
+        }
+
+        a:hover{
+            background-color:rgb(5, 46, 100);
+            color:white;
+            text-decoration: underline;
+        }
+
+ 
         
         #contenedor{
-            background: white;
+            background:rgb(5, 46, 100);
             border-radius: 30px;
             text-align:left;
             width: 500px;
-            height: 500px;
+            height: 400px;
             display: inline-block;
             padding: 20px;
+            color:white;
                 
         }
 
@@ -67,8 +106,6 @@
             color: white;
             padding: 5px;
         }
-
-        
         
 
     </style>
@@ -95,6 +132,7 @@
         var txtCantidad = parseInt(document.getElementById("txtCantidad").value);
         var cbxMoneda1 = document.getElementById("cbxMoneda1");
         var resultado = document.getElementById("resultado");
+        var btnLimpiar = document.getElementById("btnLimpiar");
         var conversion = 0;
 
 
@@ -106,10 +144,11 @@
 
             else{
                 conversion = Math.round( (txtCantidad / 26600) * 100000) / 100000; //Round par redondear, multiplicacion y division por 1000 paraa ceptar máximo 5 decimales
-                resultado.innerHTML = txtCantidad + " CLP corresponda a: " + conversion + " UF";                                                         
+                resultado.innerHTML = txtCantidad + " CLP corresponde a: " + conversion + " UF";                                                         
             }
 
             resultado.hidden = false;
+            btnLimpiar.setAttribute("style", "display:inline-block")
         }
         else{
             alert("Ingrese un numero válido")
@@ -117,18 +156,33 @@
                         
     }
 
+    function limpiarCampos(){
+        var txtCantidad = document.getElementById("txtCantidad");
+        var cbxMoneda1 = document.getElementById("cbxMoneda1");
+        var resultado = document.getElementById("resultado");
+        var btnLimpiar = document.getElementById("btnLimpiar");
+
+        txtCantidad.value = "";
+        cbxMoneda1.value = "1"
+        resultado.hidden = true;
+        btnLimpiar.setAttribute("style", "display:none")
+                       
+    }
+
                     
     </script>
 
-    <style>
-
-    </style>
-
 
 </head>
+
 <body>
+
+    <div class="titulo">
+        <h1 class="tituloEtiqueta">Ejercicio 2</h1><br>
+    </div>
+
     <div id="contenedor">
-        <h3>Convertor de pesos Chilenos (CLP) a UF</h3>
+        <h3>Convertor de pesos Chilenos (CLP) y UF</h3>
         <p>A continuación eliga la moneda de origen y la cantidad que desea convertir</p>
         <div id="contenedorInterno">
             <select name="cbxMoneda1" id="cbxMoneda1" onchange="cambiarTipoMoneda()">
@@ -141,8 +195,11 @@
             <button id="btnConvertir" onclick="convertirMoneda()">
                 ¡Convertir!
             </button>
+            <button id="btnLimpiar" onclick="limpiarCampos()" style="display: none">
+                Limpiar campos
+            </button>
 
-        <p id="resultado" hidden>pUIREVASIO IASODI </p>
+        <p id="resultado" hidden></p>
         </div>
     </div>
 
